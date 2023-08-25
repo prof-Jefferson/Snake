@@ -7,9 +7,8 @@ using TMPro;
 public class SnakeGameManager : MonoBehaviour
 {
 	public GameObject gameOverPanel;
-	public int score = 0;
-	public TextMeshProUGUI scoreTextMeshPro; // Texto da UI Text Mesh PRO no Inspector do Unity para associar.
-
+	public TextMeshProUGUI scoreTextMeshPro;
+	
 	public GameObject blockPrefab;
 	public Color snakeColor = new Color(1f, 1f, 1f, 0.8f); // 80% de opacidade
 	public Color appleColor = new Color(1f, 0f, 0f, 0.8f); // Vermelho com 80% de opacidade
@@ -61,8 +60,6 @@ public class SnakeGameManager : MonoBehaviour
 
 		if (snake.segments[0] == applePosition)
 		{
-			score++;
-			scoreTextMeshPro.text = "Score: " + score;
 			snake.Grow(); // Faz a cobrinha crescer.
 			PlaceApple(); // Reposiciona a ma��.
 						  // E qualquer outra l�gica que voc� queira implementar quando a cobrinha come uma ma��.
@@ -133,6 +130,7 @@ public class SnakeGameManager : MonoBehaviour
 		{
 			snake.Grow();
 			PlaceApple();
+			scoreTextMeshPro.text = "Score: " + snake.score;
 		}
 	}
 

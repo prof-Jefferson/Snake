@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 2136646188}
-  score: 0
   scoreTextMeshPro: {fileID: 1981675369}
   blockPrefab: {fileID: 3508180845444524653, guid: e09eef804befdcd4aa458018cd53d3b6, type: 3}
   snakeColor: {r: 1, g: 1, b: 1, a: 0.8}
@@ -612,7 +611,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4572669fe779ea74bbeb8acb048a22c6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -676,7 +675,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0.9277344}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1908347462
@@ -744,17 +743,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'SCORE: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4572669fe779ea74bbeb8acb048a22c6, type: 2}
+  m_sharedMaterial: {fileID: -2025350619037259339, guid: 4572669fe779ea74bbeb8acb048a22c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -771,10 +770,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.7
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
