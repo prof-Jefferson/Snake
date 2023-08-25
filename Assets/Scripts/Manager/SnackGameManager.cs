@@ -12,7 +12,11 @@ public class SnakeGameManager : MonoBehaviour
 	public GameObject blockPrefab;
 	public Color snakeColor = new Color(1f, 1f, 1f, 0.8f); // 80% de opacidade
 	public Color appleColor = new Color(1f, 0f, 0f, 0.8f); // Vermelho com 80% de opacidade
-	private Vector2[,] positions;
+
+    public AudioSource backgroundMusic;
+    public AudioSource appleSound;
+
+    private Vector2[,] positions;
 	private int[,] gameMatrix = new int[10, 20];
 
 	private float startX = -1.596f;
@@ -29,7 +33,8 @@ public class SnakeGameManager : MonoBehaviour
 		InitializeSnake();
 		PlaceApple();
 		StartCoroutine(SnakeMovementRoutine());
-	}
+        backgroundMusic.Play();
+    }
 
 	void InitializeMatrix()
 	{
@@ -130,7 +135,8 @@ public class SnakeGameManager : MonoBehaviour
 		{
 			snake.Grow();
 			PlaceApple();
-			scoreTextMeshPro.text = "Score: " + snake.score;
+            appleSound.Play();
+            scoreTextMeshPro.text = "Score: " + snake.score;
 		}
 	}
 
