@@ -8,7 +8,7 @@ public class SnakeGameManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public int score = 0;
-    public TextMeshProUGUI scoreTextMeshPro; // Você precisa arrastar e soltar o Texto da UI Text Mesh PRO no Inspector do Unity para associar.
+    public TextMeshProUGUI scoreTextMeshPro; // Texto da UI Text Mesh PRO no Inspector do Unity para associar.
 
     public GameObject blockPrefab;
     public Color snakeColor = new Color(1f, 1f, 1f, 0.8f); // 80% de opacidade
@@ -43,7 +43,7 @@ public class SnakeGameManager : MonoBehaviour
                 positions[x, y] = new Vector2(startX + x * offset, startY + y * offset);
 
                 GameObject block = Instantiate(blockPrefab, positions[x, y], Quaternion.identity);
-                block.SetActive(false); // Desativado por padrão.
+                block.SetActive(false); // Desativado por padrï¿½o.
 
                 boardBlocks[new Vector2Int(x, y)] = block;
             }
@@ -64,8 +64,8 @@ public class SnakeGameManager : MonoBehaviour
             score++;
             scoreTextMeshPro.text = "Score: " + score;
             snake.Grow(); // Faz a cobrinha crescer.
-            PlaceApple(); // Reposiciona a maçã.
-                          // E qualquer outra lógica que você queira implementar quando a cobrinha come uma maçã.
+            PlaceApple(); // Reposiciona a maï¿½ï¿½.
+                          // E qualquer outra lï¿½gica que vocï¿½ queira implementar quando a cobrinha come uma maï¿½ï¿½.
         }
     }
 
@@ -92,11 +92,18 @@ public class SnakeGameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f); // Velocidade da cobrinha.
         }
     }
-
     void CheckCollisions()
     {
         Vector2Int headPos = snake.segments[0];
 
+        // Verifica se a cobrinha tenta sair da matriz
+        if (headPos.x < 0 || headPos.x >= 10 || headPos.y < 0 || headPos.y >= 20)
+        {
+            GameOver();
+            return;
+        }
+
+        // Verifica se a cobrinha colide consigo mesma
         for (int i = 1; i < snake.segments.Count; i++)
         {
             if (snake.segments[i] == headPos)
@@ -106,6 +113,7 @@ public class SnakeGameManager : MonoBehaviour
             }
         }
 
+        // Verifica se a cobrinha comeu a maÃ§Ã£
         if (headPos == applePosition)
         {
             snake.Grow();
@@ -118,7 +126,7 @@ public class SnakeGameManager : MonoBehaviour
         foreach (var block in boardBlocks.Values)
         {
             block.SetActive(false);
-            block.GetComponent<SpriteRenderer>().color = snakeColor; // definindo a cor padrão para todos os blocos
+            block.GetComponent<SpriteRenderer>().color = snakeColor; // definindo a cor padrï¿½o para todos os blocos
         }
 
         foreach (Vector2Int pos in snake.segments)
@@ -152,6 +160,6 @@ public class SnakeGameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         
         StopAllCoroutines();
-        // TODO: Implemente a lógica do GameOver aqui. Você pode mostrar uma mensagem, reiniciar o jogo, etc.
+        // TODO: Implemente a lï¿½gica do GameOver aqui. Vocï¿½ pode mostrar uma mensagem, reiniciar o jogo, etc.
     }
 }
