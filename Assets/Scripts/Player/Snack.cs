@@ -40,6 +40,6 @@ public class Snake
 	public void Grow()
 	{
 		willGrow = true; // A pr�xima vez que a cobrinha se mover, ela n�o perder� seu �ltimo segmento.
-		score++;
+		score++;		
 	}
 }
